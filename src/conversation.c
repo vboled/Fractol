@@ -12,18 +12,30 @@
 
 #include "fractol.h"
 
-void	scale(t_frac *frac, int key)
+void	scale_mouse(t_frac *frac, int key, int x, int y)
+{
+	if (x >= 400 && x <= 1200 && y >= 50 && y <= 850)
+	{
+		frac->old_scale = frac->scale;
+		if (key == 4)
+			frac->scale -= 50;
+		else
+			frac->scale += 50;
+		frac->mouse_x = 50;
+		frac->mouse_y = 50;
+	if (frac->scale <= 0)
+		frac->scale = 200;
+	}
+}
+
+void	scale_key(t_frac *frac, int key)
 {
 	if (key == 69)
 		frac->scale += 500;
 	else if (key == 78)
 		frac->scale -= 500;
-	else if (key == 5)
-		frac->scale += 500;
-	else
-		frac->scale -= 500;	
 	if (frac->scale <= 0)
-		frac->scale = 300;
+		frac->scale = 200;
 }
 
 void	shift(t_frac *frac, int key, double step)

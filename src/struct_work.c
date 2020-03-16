@@ -4,12 +4,17 @@ void	frac_init(t_frac *frac)
 {
 	frac->shift_x = 0;
 	frac->shift_y = 0;
+	frac->mouse_x = 400;
+	frac->mouse_y = 500;
 	frac->num_of_iter = 30;
 	frac->color_scheme = 0;
-	frac->scale = 500;
+	frac->old_x = 0;
+	frac->old_y = 0;
+	frac->scale = 200;
+	frac->old_scale = frac->scale;
 	frac->mlx = mlx_init();
-	frac->win = mlx_new_window(frac->mlx, 1100, 1100, "win1");
-	frac->img = mlx_new_image(frac->mlx, 1000, 1000);
+	frac->win = mlx_new_window(frac->mlx, 1250, 900, "win1");
+	frac->img = mlx_new_image(frac->mlx, 800, 800);
 }
 
 void	free_struct(t_frac *frac)

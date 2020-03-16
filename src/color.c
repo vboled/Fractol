@@ -38,7 +38,7 @@ int			color0(int num_of_iter, int iter)
 	percentage = (double)iter / num_of_iter;
 	if (iter % 2)
 		return (get_color(0x0000FF, 0xFF0000, percentage));
-	return (get_color(0xFF0000, 0x0000FF, percentage));
+	return (get_color(0x5DE100, 0xFFBC00, percentage));
 }
 
 int			color1(int num_of_iter, int iter)

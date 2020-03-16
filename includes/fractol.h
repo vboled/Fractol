@@ -30,9 +30,13 @@ typedef struct			s_frac
 	double				shift_x;
 	double				shift_y;
 	int					scale;
+	int					old_scale;
 	int					pix_m_size;
 	int					color_scheme;
-	// int					is_shifted;
+	int					mouse_x;
+	int					mouse_y;
+	double				old_x;
+	double				old_y;
 	int					num_of_iter;
 }						t_frac;
 
@@ -41,10 +45,11 @@ void					frac_init(t_frac *frac);
 void					shift(t_frac *frac, int key, double step);
 int						mem_alloc(t_frac *frac);
 void					free_struct(t_frac *frac);
-void					scale(t_frac *frac, int key);
+void					scale_key(t_frac *frac, int key);
 void					create_mlx_image(t_frac *frac);
 void					put_mand(t_frac *frac);
 int						mouse_hook(int key, int x, int y, void *param);
 int						put_color(t_frac *frac, int iter);
-
+void					scale_mouse(t_frac *frac, int key, int x, int y);
+void					circle(t_frac *frac);//
 #endif

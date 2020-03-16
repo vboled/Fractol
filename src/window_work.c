@@ -12,16 +12,10 @@
 
 #include "fractol.h"
 
-void	test(t_frac *frac)
-{
-	create_mlx_image(frac);
-}
-
 int		mouse_hook(int key, int x, int y, void *param)
 {
 	if (key == 4 || key == 5)
-		scale(param, key);
-	put_mand(param);
+		scale_mouse(param, key, x, y);
 	create_mlx_image(param);
 	return (0);
 }
@@ -37,8 +31,7 @@ int		deal_hook(int key, void *param)
 	if (key >= 123 && key <= 126)
 		shift(param, key, 0.05);
 	if (key == 69 || key == 78)
-		scale(param, key);
-	put_mand(param);
+		scale_key(param, key);
 	create_mlx_image(param);
 	return (0);
 }

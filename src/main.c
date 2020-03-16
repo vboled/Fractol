@@ -22,7 +22,6 @@ int		main(int argc, char **argv)
 	argv++;
 	mlx_hook(frac.win, 2, 0, deal_hook, &frac);
 	mlx_hook(frac.win, 4, 0, mouse_hook, &frac);
-	// printf("%d\n", frac.num_of_iter);
 	create_mlx_image(&frac);
 	mlx_loop(frac.mlx);
 	return (0);
