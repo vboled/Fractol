@@ -9,6 +9,7 @@ int		add_frac(t_frac **frac, int type)
 		if (!(*frac = (t_frac *)malloc(sizeof(t_frac))))
 			return (0);
 		frac_init(*frac, type, NULL);
+		(*frac)->head = *frac;
 		return (1);
 	}
 	tmp = *frac;
@@ -17,11 +18,12 @@ int		add_frac(t_frac **frac, int type)
 	if (!((*frac)->next = (t_frac *)malloc(sizeof(t_frac))))
 		return (0);
 	frac_init((*frac)->next, type, (*frac)->mlx);
+	(*frac)->next->head = (*frac)->head;
 	*frac = tmp;
 	return (1);
 }
 
-void	frac_init(t_frac *frac, int type, void *mlx)
+void	init(t_frac *frac, int type)
 {
 	frac->type = type;
 	frac->next = NULL;
@@ -30,16 +32,29 @@ void	frac_init(t_frac *frac, int type, void *mlx)
 	frac->mouse_x = 400;
 	frac->mouse_y = 500;
 	frac->num_of_iter = 100;
+	frac->num_of_str = 1;
 	frac->color_scheme = 1;
 	frac->change_x = 1;
 	frac->scale = 200;
 	frac->c_x = -0.8;
 	frac->c_y = 0.156;
 	frac->old_scale = frac->scale;
+}
+
+void	frac_init(t_frac *frac, int type, void *mlx)
+{
+	init(frac, type);
 	if (mlx)
+	{
 		frac->mlx = mlx;
+	}
 	else
-		frac->mlx = mlx_init();	
+	{
+		frac->mlx = mlx_init();
+	//	printf("head type = %d\n", frac->type);
+	}
+//	printf("head type = %d\n", tmp->type);
+//	printf("head type = %d\n", frac->head->type);
 	frac->win = mlx_new_window(frac->mlx, WIDTH + 405, WIDTH + 100, "win1");
 	frac->img = mlx_new_image(frac->mlx, WIDTH, WIDTH);
 }

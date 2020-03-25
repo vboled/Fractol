@@ -24,6 +24,7 @@
 typedef struct			s_frac
 {
 	struct s_frac		*next;
+	struct s_frac		*head;
 	void				*mlx;
 	void				*win;
 	void				*img;
@@ -44,9 +45,10 @@ typedef struct			s_frac
 	int					change_x;
 	int					type;
 	int					num_of_iter;
+	int					num_of_str;
 }						t_frac;
 
-int						deal_hook(int key, void *param);
+int						deal_hook(int key, t_frac *param);
 void					frac_init(t_frac *frac, int type, void *mlx);
 void					shift(t_frac *frac, int key, double step);
 int						mem_alloc(t_frac *frac);

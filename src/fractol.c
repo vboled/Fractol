@@ -66,7 +66,7 @@ void	julia(t_frac *frac)
 	double y;
 
 	i = 0;
-	printf("c_x = %f, c_y = %f\n\n", frac->c_x, frac->c_y);
+	// printf("c_x = %f, c_y = %f\n\n", frac->c_x, frac->c_y);
 	while (i < WIDTH)
 	{
 		j = 0;
@@ -110,12 +110,12 @@ void	circle(t_frac *frac)
 			x = (double)(j - 400) / frac->scale - dx;
 			if (i == 50 && j == 50)
 			{
-				printf("x = %f, ", x);
-				printf("y = %f\n", y);
-				printf("new_x = %f, ", new_x);
-				printf("new_y = %f\n", new_y);
-				printf("old_x = %f, ", old_x);
-				printf("old_y = %f\n\n", old_y);
+				// printf("x = %f, ", x);
+				// printf("y = %f\n", y);
+				// printf("new_x = %f, ", new_x);
+				// printf("new_y = %f\n", new_y);
+				// printf("old_x = %f, ", old_x);
+				// printf("old_y = %f\n\n", old_y);
 			}
 			if (x * x + y * y <= 1)
 				frac->pix_m[i * WIDTH + j] = 0;
