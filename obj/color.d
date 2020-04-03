@@ -1,1 +1,2 @@
-obj/color.o: src/color.c fractol.h libs/minilibx/mlx.h libft/libft.h
+obj/color.o: src/color.c src/../includes/fractol.h libs/minilibx/mlx.h \
+ src/../includes/../libft/libft.h

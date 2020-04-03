@@ -1,2 +1,2 @@
-obj/conversation.o: src/conversation.c fractol.h libs/minilibx/mlx.h \
- libft/libft.h
+obj/conversation.o: src/conversation.c src/../includes/fractol.h \
+ libs/minilibx/mlx.h src/../includes/../libft/libft.h

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		is_mand(double x, double y, int n)
 {
@@ -104,23 +104,25 @@ void	circle(t_frac *frac)
 	double dy = new_y - old_y;
 	for (int i = 0; i < WIDTH; i++)
 	{
-		y = (double)(i - 400) / frac->scale - dy;
+		y = (double)(i - 450) / frac->scale;
 		for (int j = 0; j < WIDTH; j++)
 		{
-			x = (double)(j - 400) / frac->scale - dx;
+			x = (double)(j - 450) / frac->scale;
 			if (i == 50 && j == 50)
 			{
-				// printf("x = %f, ", x);
-				// printf("y = %f\n", y);
-				// printf("new_x = %f, ", new_x);
-				// printf("new_y = %f\n", new_y);
-				// printf("old_x = %f, ", old_x);
-				// printf("old_y = %f\n\n", old_y);
+				printf("x = %f, ", x);
+				printf("y = %f\n", y);
+				printf("new_x = %f, ", new_x);
+				printf("new_y = %f\n", new_y);
+				printf("old_x = %f, ", old_x);
+				printf("old_y = %f\n\n", old_y);
 			}
 			if (x * x + y * y <= 1)
 				frac->pix_m[i * WIDTH + j] = 0;
 			else
 				frac->pix_m[i * WIDTH + j] = 0xFF0000;
+			if (i == 400 || j == 400)
+				frac->pix_m[i * WIDTH + j] = 0xFFFFFF;
 		}
 	}
 }
@@ -147,4 +149,9 @@ void	mandelbrot(t_frac *frac)
 		}
 		i++;
 	}
+}
+
+void	dragon(t_frac *frac)
+{
+	
 }

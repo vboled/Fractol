@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rfork <rfork@student.42.fr>                +#+  +:+       +#+         #
+#    By: gweasley <rfork@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/05 17:09:20 by rfork             #+#    #+#              #
 #    Updated: 2020/01/13 20:23:37 by dovran           ###   ########.fr        #
@@ -27,7 +27,7 @@ SRCS = main.c \
 		color.c 
 OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
 DEPENDS = ${OBJS:.o=.d} 
-HEAD = -I .
+HEAD = -I./includes/
 
 ifeq ($(OS),Windows_NT)
 	detected_OS := Windows

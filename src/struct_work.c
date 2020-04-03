@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		add_frac(t_frac **frac, int type)
 {
@@ -34,7 +34,7 @@ void	init(t_frac *frac, int type)
 	frac->num_of_iter = 100;
 	frac->num_of_str = 1;
 	frac->color_scheme = 1;
-	frac->change_x = 1;
+	frac->change_x = -1;
 	frac->scale = 200;
 	frac->c_x = -0.8;
 	frac->c_y = 0.156;

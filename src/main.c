@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	print_param(t_frac *frac)
 {
