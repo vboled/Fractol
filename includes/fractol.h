@@ -48,6 +48,8 @@ typedef struct			s_frac
 	int					num_of_str;
 }						t_frac;
 
+void					destroy_window(t_frac *frac);
+void					change_role(t_frac *param);
 int						deal_hook(int key, t_frac *param);
 void					frac_init(t_frac *frac, int type, void *mlx);
 void					shift(t_frac *frac, int key, double step);

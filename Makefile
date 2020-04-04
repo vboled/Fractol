@@ -25,8 +25,6 @@ SRCS = main.c \
 		fractol.c \
 		conversation.c \
 		color.c 
-OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
-DEPENDS = ${OBJS:.o=.d} 
 HEAD = -I./includes/
 
 ifeq ($(OS),Windows_NT)
@@ -39,13 +37,18 @@ ifeq ($(detected_OS),Linux)
 	LIBMAKE := libs/minilibx
 	LIB :=  -L libft -lft -L libs/minilibx -lmlx_Linux -lXext -lX11 -lm
 	HEAD += -I./libs/minilibx/
+	SRCS += window_work_lin.c
 endif
 ifeq ($(detected_OS),Darwin) 
 	MAKES = ./libs/libft.a ./libs/minilibx_macos/libmlx.a 
 	LIBMAKE := libs/minilibx_macos
 	LIB := -L libft -lft -L libs/minilibx_macos -lmlx -framework OpenGL -framework Appkit
 	HEAD += -I./libs/minilibx_macos/
+	SRCS += window_work_mac.c
 endif
+
+OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
+DEPENDS = ${OBJS:.o=.d} 
 
 .PHONY: clean fclean re
 all: $(NAME) 
