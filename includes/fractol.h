@@ -85,4 +85,6 @@ void					julia(t_frac *frac);
 int						get_color(int begin, int end, double percent);
 void					change_dragon(t_frac *frac, int key);
 void					change_color(t_frac *frac);
+void					clear_window(t_frac *frac);
+void					call_fractal(t_frac *frac);
 #endif
