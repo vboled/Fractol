@@ -15,13 +15,13 @@
 void	change_c(int key, t_frac *frac)
 {
 	if (key == 4 && frac->change_x)
-		frac->c_x += 0.001;
+		frac->c_x += 0.005;
 	else if (frac->change_x)
-		frac->c_x -= 0.001;
+		frac->c_x -= 0.005;
 	else if (key == 4)
-		frac->c_y += 0.001;
+		frac->c_y += 0.005;
 	else
-		frac->c_y -= 0.001;
+		frac->c_y -= 0.005;
 }
 
 void	mouse_wheel(t_frac *frac, int key, int x, int y)
@@ -30,7 +30,6 @@ void	mouse_wheel(t_frac *frac, int key, int x, int y)
 	{
 		if (frac->change_x == -1)
 		{
-			frac->old_scale = frac->scale;
 			if (key == 4)
 				frac->scale -= 5;
 			else
@@ -38,30 +37,30 @@ void	mouse_wheel(t_frac *frac, int key, int x, int y)
 			frac->mouse_x = 50;
 			frac->mouse_y = 50;
 			if (frac->scale <= 0)
-			frac->scale = 200;
+				frac->scale = 200;
 		}
 		else
-			change_c(key, frac);	
+			change_c(key, frac);
 	}
 }
 
 void	scale_key(t_frac *frac, int key)
 {
 	if (key == 65451)
-		frac->scale += 500;
+		frac->scale += frac->scale_step;
 	else if (key == 65453)
-		frac->scale -= 500;
+		frac->scale -= frac->scale_step;
 	if (frac->scale <= 0)
-		frac->scale = 200;
+		frac->scale += frac->scale_step;
 }
 
 void	shift(t_frac *frac, int key, double step)
 {
-	if (key == 65361)
-		frac->shift_x -= 125;
-	if (key == 65362)
-		frac->shift_x += 125;
 	if (key == 65363)
+		frac->shift_x -= 125;
+	if (key == 65361)
+		frac->shift_x += 125;
+	if (key == 65362)
 		frac->shift_y += 125;
 	if (key == 65364)
 		frac->shift_y -= 125;

@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   image_work.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gweasley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/13 20:23:37 by dovran           ###   ########.fr       */
+/*   Created: 2020/03/11 14:29:08 by gweasley          #+#    #+#             */
+/*   Updated: 2020/03/11 14:29:09 by gweasley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdio.h>//
 #include "../includes/fractol.h"
-
-void	print_param(t_frac *frac)
-{
-	while (frac)
-	{
-		printf("%d, ", frac->type);
-		frac = frac->next;
-	}
-	printf("\n");
-}
 
 int		check_param(char *str, t_frac **frac)
 {
@@ -29,7 +19,9 @@ int		check_param(char *str, t_frac **frac)
 		return (0);
 	if (!ft_strcmp(str, "julia") && !add_frac(frac, 2))
 		return (0);
-	if (!ft_strcmp(str, "circle") && !add_frac(frac, 3))
+	if (!ft_strcmp(str, "dragon") && !add_frac(frac, 3))
+		return (0);
+	if (!ft_strcmp(str, "circle") && !add_frac(frac, 4))
 		return (0);
 	return (1);
 }
@@ -72,7 +64,10 @@ int		main(int argc, char **argv)
 		mlx_loop(mlx);
 	}
 	else
-		write(1, "There are commands:\nmandelbrot, julia, circle\n", 46);	
+	{
+		write(1, "There are commands:\nmandelbrot, julia, dragon, circle\n",
+		54);
+	}
 	return (0);
 }
 

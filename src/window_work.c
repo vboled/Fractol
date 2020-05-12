@@ -44,10 +44,7 @@ void	destroy_window(t_frac *frac)
 
 void	change_role(t_frac *param)
 {
-	if (param->change_x == -1)
-		param->change_x = 0;
-	else if (param->change_x == 1)
+	param->change_x++;
+	if (param->change_x > 1)
 		param->change_x = -1;
-	else
-		param->change_x = 1;
 }

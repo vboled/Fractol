@@ -23,8 +23,8 @@ int			get_color(int begin, int end, double percent)
 	int		blue;
 	int		green;
 
-	if (percent == 1.0)
-		return (0);
+	if (begin == end)
+		return (begin);
 	red = get_light(begin >> 16 & 255, end >> 16 & 255, percent);
 	green = get_light(begin >> 8 & 255, end >> 8 & 255, percent);
 	blue = get_light(begin & 255, end & 255, percent);
@@ -57,10 +57,16 @@ int			color1(int num_of_iter, int iter)
 
 int			put_color(t_frac *frac, int iter)
 {
-	if (frac->color_scheme == 0)
-		return (color0(frac->num_of_iter, iter));
+	if (!frac->color_scheme)
+	{
+		if (frac->num_of_iter > iter)
+			return (0xFFFF00);
+		else
+			return (0x0000FF);
+	}
 	if (frac->color_scheme == 1)
+		return (color0(frac->num_of_iter, iter));
+	if (frac->color_scheme == 2)
 		return (color1(frac->num_of_iter, iter));
 	return (0);
 }
-

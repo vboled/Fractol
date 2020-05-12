@@ -14,12 +14,27 @@
 # define FRACTOL_H
 
 # define WIDTH 800
-#include "mlx.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <math.h>
-# include "../libft/libft.h"
-#include <stdio.h>
+# include "mlx.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <math.h>
+# include "../libs/libft/libft.h"
+# include <stdio.h>
+
+typedef struct			s_line
+{
+	int					dx;
+	int					dy;
+	int					sx;
+	int					sy;
+}						t_line;
+
+typedef struct			s_point
+{
+	int					x;
+	int					y;
+	int					color;
+}						t_point;
 
 typedef struct			s_frac
 {
@@ -34,8 +49,8 @@ typedef struct			s_frac
 	int					endian;
 	double				shift_x;
 	double				shift_y;
+	int					scale_step;
 	int					scale;
-	int					old_scale;
 	int					pix_m_size;
 	int					color_scheme;
 	int					mouse_x;
@@ -46,8 +61,11 @@ typedef struct			s_frac
 	int					type;
 	int					num_of_iter;
 	int					num_of_str;
+	int					num_of_dragon;
 }						t_frac;
 
+void					dragon(t_frac *frac);
+void					print_line(t_frac *frac, t_point a, t_point b);
 void					destroy_window(t_frac *frac);
 void					change_role(t_frac *param);
 int						deal_hook(int key, t_frac *param);
@@ -64,6 +82,7 @@ int						put_color(t_frac *frac, int iter);
 void					mouse_wheel(t_frac *frac, int key, int x, int y);
 void					change_iter(t_frac *frac, int key);
 void					julia(t_frac *frac);
-void					circle(t_frac *frac);//t);
-void					print_param(t_frac *frac);//
+int						get_color(int begin, int end, double percent);
+void					change_dragon(t_frac *frac, int key);
+void					change_color(t_frac *frac);
 #endif

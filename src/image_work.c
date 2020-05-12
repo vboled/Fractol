@@ -12,40 +12,68 @@
 
 #include "../includes/fractol.h"
 
+void	call_mandelbrot(t_frac *frac)
+{
+	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "Use mouse wheel for scaling");
+	mandelbrot(frac);
+}
+
+void	call_julia(t_frac *frac)
+{
+	if (frac->change_x == -1)
+	{
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "Use mouse wheel for scaling");
+	}
+	else if (frac->change_x == 1)
+	{
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "Use mouse wheel for change real part of z");
+	}
+	else
+	{
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "Use mouse wheel for change imaginary part of z");
+	}
+	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
+	"To change role of wheel, press Q");
+	julia(frac);
+}
+
+void	call_dragon(t_frac *frac)
+{
+	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
+	"For change number of dragons press G/B");
+	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
+	"Use mouse wheel for scaling");
+	dragon(frac);
+}
+
 void	call_fractal(t_frac *frac)
 {
 	if (frac->type == 1)
-		mandelbrot(frac);
+		call_mandelbrot(frac);
 	if (frac->type == 2)
-	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-		"For change real part of z press F/V");
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-		"For change imaginary part of z press G/B");
-		if (frac->change_x == -1)	
-			mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-			"Use mouse wheel for scaling");
-		else if (frac->change_x == 1)	
-			mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-			"Use mouse wheel for change real part of z");
-		else
-			mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-			"Use mouse wheel for change imaginary part of z");
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-		"To change role of wheel, press Q");
-		julia(frac);
-	}
+		call_julia(frac);
 	if (frac->type == 3)
-		circle(frac);
+		call_dragon(frac);
 }
 
-void	create_mlx_image(t_frac *frac)
+void	clear_window(t_frac *frac)
 {
-	mlx_clear_window(frac->mlx, frac->win);
-	frac->num_of_str = 1;
-	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF, "For change name of iter press A or Z");
-	frac->pix_m = (int *)mlx_get_data_addr(frac->img,
-	&(frac->bits_per_pixel), &(frac->size_line), &(frac->endian));
-	call_fractal(frac);
-	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 400, 50);
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < WIDTH)
+	{
+		j = 0;
+		while (j < WIDTH)
+		{
+			frac->pix_m[i * WIDTH + j] = 0;
+			j++;
+		}
+		i++;
+	}
 }

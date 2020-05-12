@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_work.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gweasley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 14:29:08 by gweasley          #+#    #+#             */
-/*   Updated: 2020/03/11 14:29:09 by gweasley         ###   ########.fr       */
+/*   Created: 2019/09/23 12:31:08 by gweasley          #+#    #+#             */
+/*   Updated: 2020/01/02 13:12:39 by gweasley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 4
+# include "../libft/libft.h"
+# include <fcntl.h>
 
-int		deal_hook(int key, t_frac *param)
-{
-	if (key == 53)
-		destroy_window(param);
-	if (param->type != -1)
-	{
-		if (key == 113)
-			change_role(param);
-		if (key >= 123 && key <= 126)
-			shift(param, key, 0.05);
-		if (key == 69 || key == 78)
-			scale_key(param, key);
-		if (key == 97 || key == 122)	
-			change_iter(param, key);
-		create_mlx_image(param);
-	}
-	return (0);
-}
+t_list				*forc_list(t_list **head, const int fd);
+int					create(t_list **list, char **line);
+int					reading(t_list **list, char **line);
+void				cleaning(t_list **head, const int fd, char **line);
+int					get_next_line(const int fd, char **line);
+#endif

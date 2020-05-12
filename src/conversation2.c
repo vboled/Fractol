@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_work.c                                       :+:      :+:    :+:   */
+/*   conversation2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gweasley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 14:29:08 by gweasley          #+#    #+#             */
-/*   Updated: 2020/03/11 14:29:09 by gweasley         ###   ########.fr       */
+/*   Created: 2020/03/08 17:23:36 by gweasley          #+#    #+#             */
+/*   Updated: 2020/03/08 17:23:38 by gweasley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int		deal_hook(int key, t_frac *param)
+void	change_dragon(t_frac *frac, int key)
 {
-	if (key == 53)
-		destroy_window(param);
-	if (param->type != -1)
-	{
-		if (key == 113)
-			change_role(param);
-		if (key >= 123 && key <= 126)
-			shift(param, key, 0.05);
-		if (key == 69 || key == 78)
-			scale_key(param, key);
-		if (key == 97 || key == 122)	
-			change_iter(param, key);
-		create_mlx_image(param);
-	}
-	return (0);
+	if (key == 103)
+		frac->num_of_dragon += 1;
+	else
+		frac->num_of_dragon -= 1;
+	if (frac->num_of_dragon < 1)
+		frac->num_of_dragon = 1;
+	if (frac->num_of_dragon > 4)
+		frac->num_of_dragon = 4;
+}
+
+void	change_color(t_frac *frac)
+{
+	frac->color_scheme++;
+	if (frac->color_scheme > 2)
+		frac->color_scheme = 0;
 }
