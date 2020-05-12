@@ -34,9 +34,9 @@ ifeq ($(detected_OS),Linux)
 	SRCS += window_work_lin.c
 endif
 ifeq ($(detected_OS),Darwin) 
-	MAKES = ./libft/libft.a ./libs/minilibx_macos/libmlx.a
+	MAKES = ./libs/libft/libft.a ./libs/minilibx_macos/libmlx.a
 	LIBMAKE := libs/minilibx_macos
-	LIB := -L libft -lft -L libs/minilibx_macos -lmlx -framework OpenGL -framework Appkit
+	LIB := -L libs/libft -lft -L libs/minilibx_macos -lmlx -framework OpenGL -framework Appkit
 	HEAD += -I./libs/minilibx_macos/
 	SRCS += window_work_mac.c
 endif
