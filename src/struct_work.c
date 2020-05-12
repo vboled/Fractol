@@ -72,15 +72,15 @@ void	free_list_frac(t_frac *frac)
 	while (frac)
 	{
 		tmp = frac->next;
-		if (frac->mlx)
-			free(frac->mlx);
+		//if (frac->mlx)
+		//	free(frac->mlx);
 		/*if (frac->win)
 			free(frac->win);
 		if (frac->img)
 			free(frac->img);
 		if (frac->pix_m)
 			free(frac->pix_m);*/
-		free(frac);
+		//free(frac);
 		frac = tmp;
 	}
 	return ;

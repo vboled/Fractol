@@ -14,7 +14,7 @@
 
 void	change_dragon(t_frac *frac, int key)
 {
-	if (key == 103)
+	if (key == 103 || key == 5)
 		frac->num_of_dragon += 1;
 	else
 		frac->num_of_dragon -= 1;

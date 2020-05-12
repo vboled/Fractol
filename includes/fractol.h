@@ -70,7 +70,7 @@ void					destroy_window(t_frac *frac);
 void					change_role(t_frac *param);
 int						deal_hook(int key, t_frac *param);
 void					frac_init(t_frac *frac, int type, void *mlx);
-void					shift(t_frac *frac, int key, double step);
+void					shift(t_frac *frac, int key);
 int						mem_alloc(t_frac *frac);
 void					free_list_frac(t_frac *frac);
 void					scale_key(t_frac *frac, int key);

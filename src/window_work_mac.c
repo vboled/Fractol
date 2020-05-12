@@ -18,14 +18,18 @@ int		deal_hook(int key, t_frac *param)
 		destroy_window(param);
 	if (param->type != -1)
 	{
-		if (key == 113)
+		if (key == 12 && param->type == 2)
 			change_role(param);
+		if (key == 5 || key == 11)
+			change_dragon(param, key);
 		if (key >= 123 && key <= 126)
-			shift(param, key, 0.05);
+			shift(param, key);
 		if (key == 69 || key == 78)
 			scale_key(param, key);
-		if (key == 97 || key == 122)	
+		if (key == 0 || key == 6)
 			change_iter(param, key);
+		if (key == 12)
+			change_color(param);
 		create_mlx_image(param);
 	}
 	return (0);

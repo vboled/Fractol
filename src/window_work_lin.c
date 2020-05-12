@@ -23,7 +23,7 @@ int		deal_hook(int key, t_frac *param)
 		if (key == 103 || key == 98)
 			change_dragon(param, key);
 		if (key >= 65361 && key <= 65364)
-			shift(param, key, 0.05);
+			shift(param, key);
 		if (key == 65451 || key == 65453)
 			scale_key(param, key);
 		if (key == 97 || key == 122)
