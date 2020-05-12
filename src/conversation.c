@@ -6,7 +6,7 @@
 /*   By: gweasley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 17:23:36 by gweasley          #+#    #+#             */
-/*   Updated: 2020/03/08 17:23:38 by gweasley         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:08:18 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	shift(t_frac *frac, int key)
 		frac->shift_x -= 125;
 	if (key == 65361 || key == 123)
 		frac->shift_x += 125;
-	if (key == 65362 || key == 125)
+	if (key == 65362 || key == 126)
 		frac->shift_y += 125;
-	if (key == 65364 || key == 126)
+	if (key == 65364 || key == 125)
 		frac->shift_y -= 125;
 }
 

@@ -6,7 +6,7 @@
 /*   By: gweasley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:29:08 by gweasley          #+#    #+#             */
-/*   Updated: 2020/03/11 14:29:09 by gweasley         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:09:34 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		deal_hook(int key, t_frac *param)
 			scale_key(param, key);
 		if (key == 0 || key == 6)
 			change_iter(param, key);
-		if (key == 12)
+		if (key == 13)
 			change_color(param);
 		create_mlx_image(param);
 	}
