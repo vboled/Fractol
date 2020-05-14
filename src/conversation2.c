@@ -27,6 +27,6 @@ void	change_dragon(t_frac *frac, int key)
 void	change_color(t_frac *frac)
 {
 	frac->color_scheme++;
-	if (frac->color_scheme > 2)
+	if (frac->color_scheme > 3)
 		frac->color_scheme = 0;
 }
