@@ -65,27 +65,6 @@ void	frac_init(t_frac *frac, int type, void *mlx)
 	frac->img = mlx_new_image(frac->mlx, WIDTH, WIDTH);
 }
 
-void	free_list_frac(t_frac *frac)
-{
-	t_frac *tmp;
-
-	while (frac)
-	{
-		tmp = frac->next;
-		//if (frac->mlx)
-		//	free(frac->mlx);
-		/*if (frac->win)
-			free(frac->win);
-		if (frac->img)
-			free(frac->img);
-		if (frac->pix_m)
-			free(frac->pix_m);*/
-		//free(frac);
-		frac = tmp;
-	}
-	return ;
-}
-
 void	create_mlx_image(t_frac *frac)
 {
 	frac->num_of_str = 1;

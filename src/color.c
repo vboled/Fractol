@@ -55,25 +55,6 @@ int			color1(int num_of_iter, int iter)
 	return (get_color(0xFF0000, 0x0000FF, percentage));
 }
 
-int			color2(int num_of_iter, int iter)
-{
-	if (!(iter % 7))
-		return (0x800080);
-	if (!(iter % 6))
-		return (0x000080);
-	if (!(iter % 5))
-		return (0x0000FF);
-	if (!(iter % 4))
-		return (0x66FF00);
-	if (!(iter % 3))
-		return (0xFFFF00);
-	if (!(iter % 2))
-		return (0xFF8800);
-	if (!(iter % 1))
-		return (0xFF0000);
-	return (0xFFFFFF);
-}
-
 int			put_color(t_frac *frac, int iter)
 {
 	if (!frac->color_scheme)

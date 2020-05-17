@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>//
 #include "../includes/fractol.h"
 
 int		check_param(char *str, t_frac **frac)
@@ -70,4 +69,3 @@ int		main(int argc, char **argv)
 	}
 	return (0);
 }
-

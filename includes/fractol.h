@@ -87,4 +87,5 @@ void					change_dragon(t_frac *frac, int key);
 void					change_color(t_frac *frac);
 void					clear_window(t_frac *frac);
 void					call_fractal(t_frac *frac);
+int						color2(int num_of_iter, int iter);
 #endif

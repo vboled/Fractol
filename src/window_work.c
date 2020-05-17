@@ -22,8 +22,8 @@ int		mouse_hook(int key, int x, int y, void *param)
 
 void	destroy_window(t_frac *frac)
 {
-	t_frac *tmp;
-	int type;
+	t_frac	*tmp;
+	int		type;
 
 	type = frac->type;
 	frac->type = -1;
@@ -37,9 +37,8 @@ void	destroy_window(t_frac *frac)
 		}
 		tmp = tmp->next;
 	}
-	free_list_frac(frac->head);
 	write(1, "EXIT\n", 5);
-	exit (0);
+	exit(0);
 }
 
 void	change_role(t_frac *param)

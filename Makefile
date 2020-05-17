@@ -17,7 +17,8 @@ SRCS = main.c \
 		conversation.c \
 		conversation2.c \
 		line.c \
-		color.c
+		color.c \
+		color1.c
 
 HEAD = -I$(INCDIR)
 
