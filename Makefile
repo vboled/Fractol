@@ -6,7 +6,7 @@ SRCDIR	= ./src/
 INCDIR	= ./includes/
 OBJDIR	= ./obj/
 
-GCC = gcc
+GCC = gcc -Wall -Wextra -Werror
 NAME = fractol
 SRCS = main.c \
 		struct_work.c \
@@ -43,26 +43,25 @@ ifeq ($(detected_OS),Darwin)
 endif
 
 OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
-DEPENDS = ${OBJS:.o=.d}
+DEPENDS = $(addprefix $(OBJDIR), $(SRCS:.c=.d))
 
 .PHONY: clean fclean re
 all: $(NAME) 
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
-	$(GCC) -o $@ -c  $(HEAD) $<
+$(OBJDIR)%.o: $(SRCDIR)%.c 
+	$(GCC) -MD -o $@ -c $(HEAD) $<
 
 $(MAKES):
 	make -C  libs/libft
 	make -sC  $(LIBMAKE)
 
--include ${DEPENDS}
+-include $(DEPENDS)
 
 $(NAME): $(MAKES) $(OBJS)
 	$(GCC) $(OBJS) $(LIB) $(HEAD) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(DEPENDS)
 	make -C libs/libft clean
 
 fclean: clean

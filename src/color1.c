@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-int			color2(int num_of_iter, int iter)
+int			color2(int iter)
 {
 	if (!(iter % 7))
 		return (0x800080);

@@ -21,7 +21,7 @@ void	safe_print(t_frac *frac, t_point a)
 		frac->pix_m[a.x * WIDTH + a.y] = a.color;
 }
 
-void	print_line1(t_frac *frac, t_point a, t_point b, t_line l)
+void	print_line1(t_frac *frac, t_point a, t_line l)
 {
 	int d;
 	int d1;
@@ -49,7 +49,7 @@ void	print_line1(t_frac *frac, t_point a, t_point b, t_line l)
 	}
 }
 
-void	print_line2(t_frac *frac, t_point a, t_point b, t_line l)
+void	print_line2(t_frac *frac, t_point a, t_line l)
 {
 	int d;
 	int d1;
@@ -86,7 +86,7 @@ void	print_line(t_frac *frac, t_point a, t_point b)
 	l.sx = (b.x >= a.x) ? (1) : (-1);
 	l.sy = (b.y >= a.y) ? (1) : (-1);
 	if (l.dy < l.dx)
-		print_line1(frac, a, b, l);
+		print_line1(frac, a, l);
 	else
-		print_line2(frac, a, b, l);
+		print_line2(frac, a, l);
 }

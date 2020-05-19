@@ -20,8 +20,6 @@ int		check_param(char *str, t_frac **frac)
 		return (0);
 	if (!ft_strcmp(str, "dragon") && !add_frac(frac, 3))
 		return (0);
-	if (!ft_strcmp(str, "circle") && !add_frac(frac, 4))
-		return (0);
 	return (1);
 }
 
@@ -64,8 +62,8 @@ int		main(int argc, char **argv)
 	}
 	else
 	{
-		write(1, "There are commands:\nmandelbrot, julia, dragon, circle\n",
-		54);
+		write(1, "There are commands:\nmandelbrot, julia, dragon\n",
+		48);
 	}
 	return (0);
 }

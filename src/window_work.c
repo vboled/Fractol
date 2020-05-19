@@ -23,9 +23,7 @@ int		mouse_hook(int key, int x, int y, void *param)
 void	destroy_window(t_frac *frac)
 {
 	t_frac	*tmp;
-	int		type;
 
-	type = frac->type;
 	frac->type = -1;
 	tmp = frac->head;
 	while (tmp)

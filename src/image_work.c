@@ -60,6 +60,7 @@ void	call_fractal(t_frac *frac)
 		call_dragon(frac);
 }
 
+
 void	clear_window(t_frac *frac)
 {
 	int		i;
