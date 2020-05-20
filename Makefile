@@ -62,6 +62,7 @@ $(NAME): $(MAKES) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(DEPENDS)
 	make -C libs/libft clean
 
 fclean: clean

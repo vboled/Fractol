@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include "stdio.h"
 
 int		deal_hook(int key, t_frac *param)
 {
@@ -18,8 +19,8 @@ int		deal_hook(int key, t_frac *param)
 		destroy_window(param);
 	if (param->type != -1)
 	{
-		if (key == 113 && param->type == 2)
-			change_role(param);
+		if (key == 32)
+			change_flag(param);
 		if (key == 103 || key == 98)
 			change_dragon(param, key);
 		if (key >= 65361 && key <= 65364)

@@ -47,10 +47,10 @@ void	init(t_frac *frac, int type)
 	frac->scale_step = 5;
 	frac->num_of_str = 1;
 	frac->color_scheme = 0;
-	frac->change_x = -1;
 	frac->scale = 100;
 	frac->c_x = -0.8;
 	frac->c_y = 0.156;
+	frac->z_change = 0;
 	frac->num_of_dragon = 1;
 }
 

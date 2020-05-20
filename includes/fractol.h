@@ -57,7 +57,9 @@ typedef struct			s_frac
 	int					mouse_y;
 	double				c_x;
 	double				c_y;
-	int					change_x;
+	int					old_x;
+	int					old_y;
+	int					z_change;
 	int					type;
 	int					num_of_iter;
 	int					num_of_str;
@@ -67,7 +69,6 @@ typedef struct			s_frac
 void					dragon(t_frac *frac);
 void					print_line(t_frac *frac, t_point a, t_point b);
 void					destroy_window(t_frac *frac);
-void					change_role(t_frac *param);
 int						deal_hook(int key, t_frac *param);
 void					frac_init(t_frac *frac, int type, void *mlx);
 void					shift(t_frac *frac, int key);
@@ -88,4 +89,6 @@ void					change_color(t_frac *frac);
 void					clear_window(t_frac *frac);
 void					call_fractal(t_frac *frac);
 int						color2(int iter);
+void					change_flag(t_frac *frac);
+int						mouse_motion(int x, int y, void *frac);
 #endif

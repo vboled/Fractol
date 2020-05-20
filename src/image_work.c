@@ -21,23 +21,18 @@ void	call_mandelbrot(t_frac *frac)
 
 void	call_julia(t_frac *frac)
 {
-	if (frac->change_x == -1)
+	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+	0xFFFFFF, "Use mouse wheel for scaling");
+	if (!frac->z_change)
 	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
-		0xFFFFFF, "Use mouse wheel for scaling");
-	}
-	else if (frac->change_x == 1)
-	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
-		0xFFFFFF, "Use mouse wheel for change real part of z");
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
+		"To starting change z, press SPACE");
 	}
 	else
 	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
-		0xFFFFFF, "Use mouse wheel for change imaginary part of z");
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
+		"To stop change z, press SPACE");
 	}
-	mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-	"To change role of wheel, press Q");
 	julia(frac);
 }
 
