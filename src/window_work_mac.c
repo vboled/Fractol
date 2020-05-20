@@ -18,8 +18,8 @@ int		deal_hook(int key, t_frac *param)
 		destroy_window(param);
 	if (param->type != -1)
 	{
-		if (key == 12 && param->type == 2)
-			change_role(param);
+		if (key == 49)
+			change_flag(param);
 		if (key == 5 || key == 11)
 			change_dragon(param, key);
 		if (key >= 123 && key <= 126)
