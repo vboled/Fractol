@@ -25,13 +25,13 @@ void	call_julia(t_frac *frac)
 	0xFFFFFF, "Use mouse wheel for scaling");
 	if (!frac->z_change)
 	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-		"To starting change z, press SPACE");
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "To starting change z, press SPACE");
 	}
 	else
 	{
-		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++, 0xFFFFFF,
-		"To stop change z, press SPACE");
+		mlx_string_put(frac->mlx, frac->win, 30, 30 * frac->num_of_str++,
+		0xFFFFFF, "To stop change z, press SPACE");
 	}
 	julia(frac);
 }
@@ -54,7 +54,6 @@ void	call_fractal(t_frac *frac)
 	if (frac->type == 3)
 		call_dragon(frac);
 }
-
 
 void	clear_window(t_frac *frac)
 {

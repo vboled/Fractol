@@ -20,13 +20,13 @@ void	change_z(int x, int y, t_frac *frac)
 	{
 		if (frac->old_x != -100)
 		{
-			// if (x > frac->old_x)
-			// 	frac->c_x += 0.01;
-			// else 
-			// 	frac->c_x -= 0.01;
+			if (x > frac->old_x)
+				frac->c_x += 0.01;
+			else
+				frac->c_x -= 0.01;
 			if (y > frac->old_y)
 				frac->c_y += 0.01;
-			else 
+			else
 				frac->c_y -= 0.01;
 		}
 		frac->old_x = x;
@@ -77,5 +77,5 @@ void	change_flag(t_frac *frac)
 		frac->z_change = 1;
 	}
 	else
-		frac->z_change = 0;	
+		frac->z_change = 0;
 }
