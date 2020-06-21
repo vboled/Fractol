@@ -53,9 +53,9 @@ int		main(int argc, char **argv)
 		mlx = frac->mlx;
 		while (frac)
 		{
+			mlx_hook(frac->win, 6, 1 << 8, mouse_motion, frac);
 			mlx_hook(frac->win, 2, 5, deal_hook, frac);
 			mlx_hook(frac->win, 4, 3, mouse_hook, frac);
-			mlx_hook(frac->win, 6, 1 << 8, mouse_motion, frac);
 			create_mlx_image(frac);
 			frac = frac->next;
 		}

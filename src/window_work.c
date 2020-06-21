@@ -22,11 +22,11 @@ void	change_z(int x, int y, t_frac *frac)
 		{
 			if (x > frac->old_x)
 				frac->c_x += 0.01;
-			else
+			else if (x < frac->old_x)
 				frac->c_x -= 0.01;
 			if (y > frac->old_y)
 				frac->c_y += 0.01;
-			else
+			else if (y < frac->old_y)
 				frac->c_y -= 0.01;
 		}
 		frac->old_x = x;
